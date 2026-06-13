@@ -15,8 +15,6 @@
       <Folder Include="Configuration\" />
       <Folder Include="Entities\Banco\Domain\Services\" />
       <Folder Include="Entities\Banco\Ports\" />
-      <Folder Include="Entities\Boleto\Adapters\Inbound\Mappers\" />
-      <Folder Include="Entities\Boleto\Adapters\Outbound\Mappers\" />
       <Folder Include="Entities\Boleto\Domain\Services\" />
       <Folder Include="Entities\Boleto\Ports\" />
     </ItemGroup>

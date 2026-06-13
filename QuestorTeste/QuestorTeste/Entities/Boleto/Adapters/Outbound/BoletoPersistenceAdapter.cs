@@ -5,7 +5,7 @@ using QuestorTeste.Entities.Boleto.Adapters.Outbound.Entities;
 using QuestorTeste.Entities.Boleto.Domain.Models;
 using QuestorTeste.Entities.Boleto.Ports;
 
-namespace QuestorTeste.Entities.Boleto.Adapters;
+namespace QuestorTeste.Entities.Boleto.Adapters.Outbound;
 
 public class BoletoPersistenceAdapter : IBoletoOutputPort
 {

@@ -9,4 +9,7 @@ public interface IBancoInputPort
     Task<IEnumerable<BancoModel>> FindAllAsync();
     
     Task<BancoModel?> FindByCodeAsync(string codigo);
+    
+    Task<BancoModel> FindByIdAsync(Guid id);
+    
 }

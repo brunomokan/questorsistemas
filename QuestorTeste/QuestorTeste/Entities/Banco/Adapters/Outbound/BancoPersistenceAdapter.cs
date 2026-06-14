@@ -12,10 +12,10 @@ public class BancoPersistenceAdapter(AppDbContext context, IMapper mapper) : IBa
     public async Task<BancoModel> SaveAsync(BancoModel model)
     {
         var entity = mapper.Map<BancoEntity>(model);
-        
+
         await context.Bancos.AddAsync(entity);
         await context.SaveChangesAsync();
-        
+
         return mapper.Map<BancoModel>(entity);
     }
 
@@ -34,6 +34,15 @@ public class BancoPersistenceAdapter(AppDbContext context, IMapper mapper) : IBa
             .AsNoTracking()
             .FirstOrDefaultAsync(b => b.CodigoDoBanco == codigo);
 
+        return entity == null ? null : mapper.Map<BancoModel>(entity);
+    }
+
+    public async Task<BancoModel> FindByIdAsync(Guid id)
+    {
+        var entity = await context.Bancos
+            .AsNoTracking()
+            .FirstOrDefaultAsync(b => b.Id == id);
+        
         return entity == null ? null : mapper.Map<BancoModel>(entity);
     }
 }

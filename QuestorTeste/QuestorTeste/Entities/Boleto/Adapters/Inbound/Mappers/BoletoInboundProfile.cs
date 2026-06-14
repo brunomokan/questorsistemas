@@ -10,5 +10,6 @@ public class BoletoInboundProfile : Profile
     {
         CreateMap<CriarBoletoRequestDto, BoletoModel>()
             .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<BoletoModel, BoletoResponseDto>();
     }
 }

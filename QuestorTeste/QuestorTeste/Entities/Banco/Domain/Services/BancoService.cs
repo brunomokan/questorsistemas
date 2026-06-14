@@ -24,11 +24,16 @@ public class BancoService : IBancoInputPort
 
     public Task<IEnumerable<BancoModel>> FindAllAsync()
     {
-        return  _bancoOutputPort.FindAllAsync();
+        return _bancoOutputPort.FindAllAsync();
     }
 
     public Task<BancoModel?> FindByCodeAsync(string codigo)
     {
-        return  _bancoOutputPort.FindByCodeAsync(codigo);
+        return _bancoOutputPort.FindByCodeAsync(codigo);
+    }
+
+    public Task<BancoModel> FindByIdAsync(Guid id)
+    {
+        return _bancoOutputPort.FindByIdAsync(id);
     }
 }

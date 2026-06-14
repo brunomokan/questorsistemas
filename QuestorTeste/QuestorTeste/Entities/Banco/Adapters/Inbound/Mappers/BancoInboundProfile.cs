@@ -9,6 +9,7 @@ public class BancoInboundProfile: Profile
     public BancoInboundProfile()
     {
         CreateMap<CriarBancoRequestDto, BancoModel>()
-            .ForMember(dest => dest.Id, opt => opt.Ignore()); 
+            .ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<BancoModel, BancoResponseDto>();
     }
 }

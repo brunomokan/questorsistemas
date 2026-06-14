@@ -23,4 +23,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.2.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Entities\Boleto\Adapters\Inbound\Controllers\" />
+    </ItemGroup>
+
 </Project>

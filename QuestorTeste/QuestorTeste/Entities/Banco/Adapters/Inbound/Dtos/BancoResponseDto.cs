@@ -3,7 +3,7 @@
 namespace QuestorTeste.Entities.Banco.Adapters.Inbound.Dtos;
 
 public record BancoResponseDto(
-    string Id,
+    Guid Id,
     string NomeDoBanco,
     string CodigoDoBanco,
     decimal PercentualDeJuros

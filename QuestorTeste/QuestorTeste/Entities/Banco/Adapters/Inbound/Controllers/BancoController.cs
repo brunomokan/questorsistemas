@@ -8,7 +8,7 @@ namespace QuestorTeste.Entities.Banco.Adapters.Inbound.Controllers
 {
     
     [ApiController]
-    [Route("api/v1/controller")]
+    [Route("api/v1/banco")]
     public class BancoController(IBancoInputPort bancoInputPort, IMapper mapper) : ControllerBase
     {
         [HttpPost]
@@ -16,8 +16,7 @@ namespace QuestorTeste.Entities.Banco.Adapters.Inbound.Controllers
         {
             try
             {
-                var bancoModel = mapper.Map<BancoModel>(request);
-                bancoInputPort.SaveAsync(bancoModel).Wait();
+                var bancoModel = await bancoInputPort.SaveAsync(mapper.Map<BancoModel>(request));
                 return Ok(mapper.Map<BancoResponseDto>(bancoModel));
             }
             catch (ArgumentException ex)
@@ -50,7 +49,7 @@ namespace QuestorTeste.Entities.Banco.Adapters.Inbound.Controllers
         public async Task<IActionResult> ListBancos()
         {
             var bancoModel = await bancoInputPort.FindAllAsync();
-            var responseDto = mapper.Map<BancoResponseDto>(bancoModel);
+            var responseDto = mapper.Map<IEnumerable<BancoResponseDto>>(bancoModel);
             return Ok(responseDto);
         }
         

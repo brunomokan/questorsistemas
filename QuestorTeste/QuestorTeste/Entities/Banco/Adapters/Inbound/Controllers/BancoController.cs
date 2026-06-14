@@ -31,7 +31,7 @@ namespace QuestorTeste.Entities.Banco.Adapters.Inbound.Controllers
         }
 
         [HttpGet]
-        [Route("/[codigo]")]
+        [Route("{codigo}")]
         public async Task<IActionResult> FindBanco([FromRoute] string codigo)
         {
             var bancoModel = await bancoInputPort.FindByCodeAsync(codigo);

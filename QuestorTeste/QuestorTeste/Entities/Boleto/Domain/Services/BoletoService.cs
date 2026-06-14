@@ -13,11 +13,11 @@ public class BoletoService(IBoletoOutputPort boletoOutputPort, IBancoInputPort b
 
     public async Task<BoletoModel?> FindByIdAsync(Guid id)
     {
-        var boletoModel = boletoOutputPort.FindByIdAsync(id).Result;
+        var boletoModel = await boletoOutputPort.FindByIdAsync(id);
 
         if (boletoModel == null || boletoModel.DataDeVencimento.CompareTo(DateTime.Now) >= 0) return boletoModel;
         
-        var banco = bancoInputPort.FindByIdAsync(boletoModel.BancoId).Result;
+        var banco = await bancoInputPort.FindByIdAsync(boletoModel.BancoId);
         boletoModel.Valor += boletoModel.Valor * banco.PercentualDeJuros / 100;
 
         return boletoModel;

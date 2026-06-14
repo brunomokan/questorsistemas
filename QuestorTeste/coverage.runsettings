@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="XPlat code coverage">
+        <Configuration>
+          <Format>cobertura</Format>
+          <Include>
+            [QuestorTeste]QuestorTeste.Entities.*.Adapters.Inbound.Controllers.*,
+            [QuestorTeste]QuestorTeste.Entities.*.Domain.Services.*
+          </Include>
+          <Exclude>
+            [QuestorTeste.UnitTests]*
+          </Exclude>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

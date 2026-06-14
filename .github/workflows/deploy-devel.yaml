@@ -51,6 +51,12 @@ jobs:
           recreate: true
           path: code-coverage-results.md
           
+      - name: Download SVG Badge
+        if: github.event_name != 'pull_request'
+        run: |
+          BADGE_URL=$(grep -o 'https://img.shields.io/badge/[^)]*' code-coverage-results.md)
+          curl -s "$BADGE_URL" -o coverage.svg
+          
       - name: Commit Code Coverage Badge
         uses: stefanzweifel/git-auto-commit-action@v5
         if: github.event_name != 'pull_request'

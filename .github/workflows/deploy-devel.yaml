@@ -14,7 +14,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       packages: write
       pull-requests: write
 
@@ -50,6 +50,13 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
+          
+      - name: Commit Code Coverage Badge
+        uses: stefanzweifel/git-auto-commit-action@v5
+        if: github.event_name != 'pull_request'
+        with:
+          commit_message: "chore: atualiza badge de code coverage [skip ci]"
+          file_pattern: coverage.svg
 
       - name: Log in to the Container registry
         if: github.event_name != 'pull_request'

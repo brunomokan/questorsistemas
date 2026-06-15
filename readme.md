@@ -91,4 +91,3 @@ HTTP Request
 ### Deploy
 
 A aplicacao e containerizada via **Docker** (multi-stage build) e publicada no **GitHub Container Registry (GHCR)** atraves de pipeline **GitHub Actions**, que executa testes, coleta cobertura de codigo e faz o build/push da imagem.
-mago@Debian13:~/temp/questorsistemas$
